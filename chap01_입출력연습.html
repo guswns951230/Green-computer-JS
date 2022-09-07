@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입출력 연습</title>
+</head>
+<body>
+  <p>현재 나이는 <span id = "age"></span>세 입니다.</p>
+
+  <hr>
+  <h1><span id="name"></span>님 오신것을 환영합니다.</h1>
+  <p>홈페이지에 방문하신 것을 환영합니다.</p>
+  <script>
+    // java script만 이용하여 작성
+    let nickname = prompt('닉네임을 입력해주세요');
+    document.write(`<h1>${nickname}님 오신것을 환영합니다.</h1>`)
+    document.write('<p>홈페이지에 방문하신 것을 환영합니다.</p>')
+
+    // prompt를 통해 값을 받고 태그에 접근하여 출력
+    let name = document.querySelector('#name').innerHTML = nickname;
+    // ------------------------------------------------
+    let inputAge = parseInt(prompt('생년을 입력해주세요.'));
+    let date = new Date().getFullYear();
+    let age = document.querySelector('#age').innerHTML = date - inputAge;
+    console.log(date);
+
+  </script>
+</body>
+</html>
