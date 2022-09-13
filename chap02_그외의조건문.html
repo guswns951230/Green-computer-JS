@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그 외의 조건문</title>
+</head>
+<body>
+  <script>
+    // switch
+    let score = prompt('점수를 입력');
+
+    switch(score){
+      case 'A':
+        document.write('참 잘했습니다.');
+        break;
+      case 'B':
+        document.write('잘 했습니다.');
+        break;
+      case 'C':
+        document.write('아쉽습니다.');
+        break;
+      case 'D':
+        document.write('분발하세요');
+        break;
+      default:
+        document.write('잘못된 점수입니다.')
+    }
+
+    // 삼항연산자
+    // if/else를 한줄로 표현
+    (false) ? document.write('참') : console.log('거짓');
+
+    // 조건식 ? 참 : 거짓
+    // 위와 같이 작성하여 값을 초기화
+    let test; // 선언만 하면 undefined 값이 들어감
+
+    // test라는 boolean값이 아닌 자료형이 조건식에 들어가면
+    // Boolean()을 이용한 자동 형 변환이 일어난 값이 들어간다
+    // null, undefined, "", 0 과 같은 값은 false로 변환
+    // *비교연산자 사용할 때 자동으로 형 변환이 되지 않을 수 있음
+    test = test ? test: "초기화 값";
+
+    let a = 20;
+    let b = 40;
+    max = a > b ? a : b
+    document.write(max);
+  </script>
+</body>
+</html>
