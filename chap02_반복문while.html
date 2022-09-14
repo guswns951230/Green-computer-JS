@@ -21,6 +21,38 @@
       word = prompt('다시 나무를 영어로 입력');
     }
     document.write('맞췄습니다.');
+
+    // do-while
+    let b = 0;
+    do{
+      document.write(b);
+      b++;
+    } while(b<0);
+
+    // 값을 여러번 입력받을 때, do while을 사용하면 한번은 반드시 입력
+    let num = 0;
+    do{
+      num = prompt('숫자를 입력하세요');
+    } while (isNaN(num))
+    alert(num);
+
+    // break
+    let c = 0;
+    while(true){
+      console.log('무한반복');
+      c++;
+      if(c > 10){
+        break;
+      }
+    }
+
+    // continue
+    for(let i = 0; i<10; i++){
+      if(i == 7){
+        continue;
+      }
+      console.log(i);
+    }
   </script>
 </body>
 </html>
