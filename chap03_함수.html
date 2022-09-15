@@ -1,59 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>함수</title>
-  <script>
-    // 명시적 함수 - 매개변수 X
-    function hi(){
-      document.write('hi');
-    }
-    // 명시적 함수1 - 매개변수 O
-    function introName(name){
-      document.write(`<p>안녕하세요 ${name}입니다. 반갑습니다.</p>`);
-    }
-    // 명시적 함수2
-    function introNameReturn(name){
-      return `안녕하세요. ${name}입니다. 반갑습니다.`;
-    }
-  </script>
-</head>
-<body>
-  <script>
-    // 함수 : function
-    // 함수를 선언하는 방법
-    function count(num){
-      // 매개변수를 통해 값을 가져올 수 있다.
-      for(let i = 0; i<=num; i++){
-        console.log(i);
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수</title>
+    <script>
+      // 명시적 함수 - 매개변수 X
+      function hi() {
+        document.write("hi");
       }
-      // return을 통해 값을 내보내 줄 수 있다
-      return num;
-    }
+      // 명시적 함수1 - 매개변수 O
+      function introName(name) {
+        document.write(`<p>안녕하세요 ${name}입니다. 반갑습니다.</p>`);
+      }
+      // 명시적 함수2
+      function introNameReturn(name) {
+        return `안녕하세요. ${name}입니다. 반갑습니다.`;
+      }
+      // 명시적 함수3
+      function introNameReturnLog(name) {
+        console.log("함수가 출력되었습니다.");
+        return `안녕하세요 ${name}입니다. 반갑습니다.`;
+      }
+      // 명시적 함수4
+      function area(num1, num2) {
+        let square = num1 * num2;
+        return square;
+      }
+      // 명시적 함수5(매개변수가 배열)
+      function avrg(array) {
+        // array가 배열이 아니라면 0을 return
+        if (!Array.isArray(array)) {
+          return 0;
+          // return을 사용하면 함수가 종료
+          // return 이후에 나오는 코드는 실행되지않음
+          document.write("함수종료");
+        }
+        // 배열의 모든 값을 더하고 평균값 구하기
+        let sum = 0;
+        let avg = 0;
+        let count = 0;
+        for (number of array) {
+          count++;
+          sum += number;
+        }
+        avg = sum / array.length;
+        return avg;
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      // 함수 : function
+      // 함수를 선언하는 방법
+      function count(num) {
+        // 매개변수를 통해 값을 가져올 수 있다.
+        for (let i = 0; i <= num; i++) {
+          console.log(i);
+        }
+        // return을 통해 값을 내보내 줄 수 있다
+        return num;
+      }
 
-    // 함수 호출 방법
-    count(10);
-    // 함수의 리턴값 콘솔에 출력
-    console.log('현재 count:', count(3));
-    let returnNum = count(5);
-    console.log(returnNum);
+      // 함수 호출 방법
+      count(10);
+      // 함수의 리턴값 콘솔에 출력
+      console.log("현재 count:", count(3));
+      let returnNum = count(5);
+      console.log(returnNum);
 
-    // 함수 선언
-    function intro() {
-      document.write(`<h1>안녕하세요. 반갑습니다.</h1>`);
-    }
-    // 함수 실행 - 함수 호출
-    intro();
+      // 함수 선언
+      function intro() {
+        document.write(`<h1>안녕하세요. 반갑습니다.</h1>`);
+      }
+      // 함수 실행 - 함수 호출
+      intro();
 
-    // head에 선언한 명시적 할수를 호출할 때는 body안의 script에서 호출
-    hi();
+      // head에 선언한 명시적 할수를 호출할 때는 body안의 script에서 호출
+      hi();
 
-    // 명시적 함수 실습1
-    introName('kang');
-    // 명시적 함수 실습2
-    document.write(introNameReturn('홍길동'));
-  </script>
-</body>
+      // 명시적 함수 실습1
+      introName("kang");
+      // 명시적 함수 실습2
+      document.write(introNameReturn("홍길동"));
+      // 명시적 함수 실습3
+      document.write(introNameReturnLog("kim"));
+      // 명시적 함수 실습4
+      document.write(area(8, 10));
+      // 인수값으로 배열 만들어 넣기
+      let numArray = [30, 60, 50, 70, 90];
+      document.write(avrg(numArray));
+    </script>
+  </body>
 </html>
