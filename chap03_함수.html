@@ -48,6 +48,48 @@
         avg = sum / array.length;
         return avg;
       }
+      // 동일한 이름의 함수가 있을때 매개변수가 많은 함수가 호출
+      function introName(name, adress) {
+        document.write(`${name}입니다. ${adress}에 거주중`);
+      }
+      // 명시적 함수 6
+      // 매개변수에 기본값을 할당하여 사용가능
+      function add(num1 = 0, num2 = 0) {
+        let sum = num1 + num2;
+        return sum;
+      }
+      // 나머지 매개변수 : 배열 형태로 들어옴
+      function allString(...words) {
+        for (word of words) {
+          document.write(word);
+        }
+        return words;
+      }
+      // arguments 객체 - 기본값이나 나머지 매개변수를 사용하지 않을 때
+      function argument(a) {
+        document.write(`<p>${a}</p>`);
+        document.write(`<h3>${arguments[0]}</h3>`);
+        for (arg of arguments) {
+          document.write(`<li>${arg}</li>`);
+        }
+      }
+      // 명시적 함수7
+      // arguments 사용
+      function addAllArg(x) {
+        let sum = 0;
+        for (arg of arguments) {
+          sum += arg;
+        }
+        return sum;
+      }
+      // 나머지 매개변수 사용
+      function addAllRest(...numbers) {
+        let sum = 0;
+        for (number of numbers) {
+          sum += number;
+        }
+        return sum;
+      }
     </script>
   </head>
   <body>
@@ -78,7 +120,7 @@
       intro();
 
       // head에 선언한 명시적 할수를 호출할 때는 body안의 script에서 호출
-      hi();
+      // hi();
 
       // 명시적 함수 실습1
       introName("kang");
@@ -91,6 +133,20 @@
       // 인수값으로 배열 만들어 넣기
       let numArray = [30, 60, 50, 70, 90];
       document.write(avrg(numArray));
+
+      // 함수의 기본 원칙
+      // 초과된 인수는 무시 -> 오류가 나지 않음
+      intro("홍길동");
+      // 부족한 인수는 undefined -> 오류가 나지 않음
+      introName();
+
+      // 명시적 함수 실습6
+      document.write(add(5));
+      // arguments
+      argument("hi", "a", "b");
+      //명시적 함수 실습7
+      document.write(addAllRest(1, 2, 3, 4, 5, 6));
+      document.write(addAllArg(1, 2, 3, 4, 5));
     </script>
   </body>
 </html>
