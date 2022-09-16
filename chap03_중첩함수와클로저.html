@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중첩함수 / 클로저</title>
+  </head>
+  <body>
+    <script>
+      // 중첩 함수 -> 함수 안에 함수가 들어가 있는 형태
+      function f() {
+        let value = 123;
+        // 함수 내부에 있는 함수는 호이스팅 되지않고 내부에서 만 사용
+        function g() {
+          // 함수안에 생성된 함수
+          alert(value);
+        }
+        g(); // 함수 f 안에서 호출
+      }
+      // 중첩함수를 실행하기 위해 감싸고 있는 함수 호출
+      f();
+
+      // 중첩 함수 실습
+      function add(a, b) {
+        let sum = a + b;
+        function printNum() {
+          //document.write를 이용하여 sum출력
+          document.write(sum);
+        }
+        printNum();
+      }
+      add(3, 5);
+
+      // 클로저
+      function count() {
+        let count = 0;
+        return function () {
+          // 클로저 함수
+          return (count += 1);
+        };
+      }
+      // 외부로 호출하기 위한 함수 - count()  한번 호출
+      let startCount = count();
+
+      // 클로저가 없는 함수
+      function noCount() {
+        let count = 0;
+        return (count += 1);
+      }
+
+      // 입력받은 숫자값을 더하는 클로저 함수
+      function sumClosures() {
+        let sum = 0; // 변수 초기화
+        return function (num) {
+          // 클로저함수
+          return (sum += num);
+        };
+      }
+      // sumClosures 함수 실행
+      // return에 넣어준 클로저 함수 startSum에 할당
+      let startSum = sumClosures();
+      document.write(`<p>${startSum(3)}</p>`);
+      document.write(`<p>${startSum(5)}</p>`);
+
+      // 클로저 함수를 이용
+      // 넣은 값을 계속해서 곱하는 함수
+      // multClosures() / startMult
+      function multClosures() {
+        let mult = 1;
+        return (num) => {
+          return (mult *= num);
+        };
+      }
+      let startMult = multClosures();
+      document.write(`<p>${startMult(3)}</p>`);
+      document.write(`<p>${startMult(5)}</p>`);
+    </script>
+  </body>
+</html>
