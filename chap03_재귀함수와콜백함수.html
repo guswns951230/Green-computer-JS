@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>재귀/콜백 함수</title>
+  </head>
+  <body>
+    <script>
+      // 재귀함수
+      // 자기자신을 호출하는 함수
+      function funcFor(n) {
+        // n이 0보다 클 때 자기자신을 호출
+        if (n > 0) {
+          // n이 반복되지 않도록 1씩 감소
+          funcFor(n - 1);
+        } else {
+          // n이 0일 때 종료
+          return 0;
+        }
+        document.write("반복합니다.");
+      }
+
+      funcFor(3);
+    </script>
+  </body>
+</html>
