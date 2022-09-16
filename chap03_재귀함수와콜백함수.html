@@ -23,6 +23,27 @@
       }
 
       funcFor(3);
+
+      // n~1까지의 수를 더하는 재귀함수
+      function funcSum(n) {
+        if (n > 0) {
+          // 값을 더해준다
+          return funcSum(n - 1) + n;
+        } else {
+          // 값을 return
+          return 0;
+        }
+      }
+      document.write(funcSum(3));
+
+      function factorial(n) {
+        if (n == 1) {
+          return 1;
+        } else {
+          return factorial(n - 1) * n;
+        }
+      }
+      document.write(factorial(5));
     </script>
   </body>
 </html>
