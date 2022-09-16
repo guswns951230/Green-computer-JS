@@ -44,6 +44,21 @@
         }
       }
       document.write(factorial(5));
+
+      // 콜백 함수
+      function callback() {
+        document.write("<p>콜백함수</p>");
+      }
+      // 함수를 인수로 넣을 때 함수 이름만 사용 / 익명 함수
+      setInterval(callback, 1000);
+      setInterval(function () {
+        document.write("<p>익명함수로 만든 콜백함수</p>");
+      }, 1500);
+      // setInterval을 사용, 화살표함수로 만든 콜백함수 를
+      // 3초마다 출력
+      setInterval(() => {
+        document.write("화살표함수로 만든 콜백함수");
+      }, 3000);
     </script>
   </body>
 </html>
