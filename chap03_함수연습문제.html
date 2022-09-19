@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 연습문제</title>
+  </head>
+  <body>
+    <script>
+      // 1
+      let power = function (a, b) {
+        let power = 0;
+        if (b == undefined) {
+          power = a ** 2;
+        } else {
+          power = a ** b;
+        }
+        console.log(power);
+      };
+      power(4);
+      power(2, 3);
+
+      // 2
+      let multiply = function (...a) {
+        let mult = 1;
+        for (let i = 0; i < a.length; i++) {
+          mult *= a[i];
+        }
+        console.log(mult);
+      };
+      multiply(1, 2, 3, 4, 5);
+
+      // 3
+      let meetAt = function (...a) {
+        if (a.length == 1) {
+          console.log(a[0] + "년");
+        } else if (a.length == 2) {
+          console.log(a[0] + "년", a[1] + "월");
+        } else if (a.length == 3) {
+          console.log(a[0] + "/" + a[1] + "/" + a[2]);
+        } else {
+          console.log("잘못된 입력");
+        }
+      };
+      // 3-2 argument를 이용
+      function meetAtArg(year, month, date) {
+        let argCount = arguments.length;
+        switch (argCount) {
+          case 1:
+            return year + "년";
+          case 2:
+            return `${year}년 ${month}월`;
+          case 3:
+            return `${year}/${month}/${date}`;
+        }
+      }
+
+      meetAt(2022);
+      meetAt(2022, 9);
+      meetAt(2022, 9, 21);
+      meetAt(2022, 9, 21, 12);
+    </script>
+  </body>
+</html>
