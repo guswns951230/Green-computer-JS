@@ -73,6 +73,65 @@
       myWallet.input = function (money) {
         mywallet.money += money;
       };
+
+      // 생성자 함수를 통해 객체를 작성하는 방법
+      function Dog(name, age) {
+        this.name = name;
+        this.age = age;
+        this.print = function () {
+          document.write(`<p>${name}</p>입니다.`);
+        };
+      }
+      // 값을 가진 객체 생성
+      let myPuppy = new Dog("백구", 1);
+
+      function Student(name, score) {
+        this.name = name;
+        this.score = score;
+        this.study = function () {
+          this.score += 10;
+        };
+        this.showScore = function () {
+          return this.score;
+        };
+      }
+      // 객체 생성
+      let myStudent = new Student("홍길동", 70);
+      let yourStudent = new Student("성춘향", 80);
+
+      function BusCard(money) {
+        this.money = money;
+        this.charge = function (pay) {
+          this.money += pay;
+        };
+        this.takeBus = function () {
+          if (this.money >= 1500) {
+            this.money -= 1500;
+          } else {
+            console.log("잔액이 부족합니다.");
+          }
+        };
+        this.showMoney = function () {
+          return this.money;
+        };
+      }
+      let myBusCard = new BusCard(1500);
+      let yourBusCard = new BusCard(1000);
+
+      function Message(name, content, time) {
+        this.name = name;
+        this.content = content;
+        this.time = time;
+        this.modifyMessage = function (message) {
+          this.content = message;
+        };
+        this.showMessage = function () {
+          return `${this.name}님께서 ${this.content}를 ${this.time}에 보냈습니다.`;
+        };
+      }
+
+      let myMessage = new Message("홍길동", "반갑습니다.", "14:24");
+      let yourMessage = new Message("성춘향", "안녕하세요.", "14:26");
     </script>
   </body>
 </html>
