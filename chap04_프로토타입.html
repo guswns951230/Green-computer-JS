@@ -31,6 +31,10 @@
         this.intro = function () {
           document.write(`<p>My name is ${this.name}</p>`);
         };
+        // 생성자 함수에 프로토타입을 추가
+        this.__proto__.lastName = function () {
+          return this.name.slice(1);
+        };
       }
 
       // 생성자 함수의 prototype에 메서드 / 속성을 추가
@@ -42,6 +46,39 @@
       let park = new Person("박길동");
       // 객체에 들어가 있는 메서드는 객체를 생성할 때 마다 만들어짐
       // prototype은 메서드 하나를 만들어 두고 접근해서 사용
+
+      // prototype은 함수마다 하나씩 가지고 있는것
+      // __proto__ 객체마다 prototype에 접근하기 위해 가지고 있는 것
+      /* __proto__ 는 prototype안에 있다*/
+
+      function Dog(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      // prototype으로 메서드와 속성 추가
+      // family 속성 추가 : '진돗개'
+      Dog.prototype.family = "진돗개";
+      // familyPrint 메서드 추가 : family 속성 return
+      Dog.prototype.familyPrint = function () {
+        return this.family;
+      };
+
+      let myPuppy = new Dog("마루", 1);
+
+      // 이미 객체가 있을 때 객체의 getter 속성 추가
+      Object.defineProperty(myPuppy, "americanAge", {
+        get: function () {
+          return this.age - 1;
+        },
+      });
+      // 이미 객체가 있을 때 객체의 setter 속성 추가
+      Object.defineProperty(myPuppy, "changeAge", {
+        set: function (n) {
+          this.age = this.age + n;
+        },
+      });
+      // getter / setter를 이용,
+      // 속성의 값을 함수를 통해 수정하여 들고 오거나 설정가능
     </script>
   </body>
 </html>
