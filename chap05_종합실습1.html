@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>종합 실습</title>
+  </head>
+  <body>
+    <h1>수정하기 전 제목입니다.</h1>
+    <ul>
+      <li>첫번째 내용</li>
+      <li>두번째 내용</li>
+      <li>세번째 내용</li>
+      <li>네번째 내용</li>
+    </ul>
+
+    <ol>
+      <li>첫번째 내용</li>
+      <li>두번째 내용</li>
+      <li>세번째 내용</li>
+      <li>네번째 내용</li>
+    </ol>
+
+    <p><span>빈 공간</span> 입니다</p>
+    <div class="main"></div>
+
+    <footer>footer 영역 입니다.</footer>
+    <script>
+      const h1Tag = document.querySelector("h1");
+      h1Tag.textContent = "DOM을 이용한 수정";
+      h1Tag.setAttribute("style", "color: blue; background-color:lightgray;");
+      // h1Tag.style.color = "blue";
+      // h1Tag.style.backgroundColor = "lightGray";
+
+      const ulTag = document.querySelector("ul");
+      ulTag.removeChild(ulTag.firstElementChild);
+
+      const li = document.createElement("li");
+      li.innerHTML = "새로 추가한 노드입니다.";
+      ulTag.append(li);
+
+      const olTag = document.querySelector("ol");
+      olTag.firstElementChild.nextElementSibling.remove();
+      olTag.children[2].remove();
+      olTag.firstElementChild.innerHTML = "내용을 바꾸었습니다.";
+
+      const spanTag = document.querySelector("p span");
+      spanTag.style.color = "red";
+
+      const main = document.querySelector(".main");
+      main.append(spanTag.parentElement.cloneNode(true));
+      main.append(spanTag.parentElement.cloneNode(true));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1 id="title">처음 제목</h1>
+    <a href="#">link</a>
+    <p class="text">클래스가 적용된 p태그</p>
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <form id="form">
+      <label for="">name</label>
+      <input type="text" id="name" />
+    </form>
+
+    <script>
+      // DOM 선택 메서드
+      // document.querySelector()
+
+      // DOM 생성 메서드
+      // return을 통해 요소를 생성, 변수에 할당하여 사용 가능
+      // 생성만 하고 HTML문서에 추가하지 않음
+      document.createElement("h1");
+
+      // InnerHTML 실습
+      let textClass = document.querySelector(".text");
+      textClass.innerHTML = "class를 통해 수정된 내용";
+
+      let titleId = document.querySelector("#title");
+      titleId.innerHTML = "id를 들고와 수정한 내용";
+
+      let allLi = document.querySelectorAll("ul li");
+      for (let i = 0; i < allLi.length; i++) {
+        allLi[i].innerHTML = "요소들을 한번에 수정";
+      }
+
+      let aTag = document.querySelector("a");
+      aTag.href = "https://www.daum.net";
+
+      let formTag = document.querySelector("#form");
+      formTag.name.disabled = "true";
+    </script>
+  </body>
+</html>
