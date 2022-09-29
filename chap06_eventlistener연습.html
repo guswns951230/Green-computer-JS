@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event listener 연습</title>
+  </head>
+  <body>
+    <h1 id="title">반갑습니다</h1>
+    <label for="">name</label>
+    <input type="text" id="name" />
+    <button id="button" onclick="onClickBtn">check</button>
+    <p id="count"></p>
+
+    <script>
+      // button을 click
+      // input의 값을 가져와 h1 태그에 OOO님 반갑습니다 출력
+      // button click시 count 증가'
+      const h1Tag = document.querySelector("#title");
+      const inputName = document.querySelector("#name");
+      const btn = document.querySelector("#button");
+      const count = document.querySelector("#count");
+
+      let numCount = 0;
+
+      function onClickBtn() {
+        h1Tag.innerHTML = inputName.value + "님 반갑습니다.";
+        numCount++;
+        count.innerHTML = numCount;
+      }
+
+      btn.addEventListener("click", onClickBtn);
+    </script>
+  </body>
+</html>

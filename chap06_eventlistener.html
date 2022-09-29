@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event listener</title>
+  </head>
+  <body>
+    <p id="text">event listener를 통해 값을 바꿔줍니다.</p>
+
+    <script>
+      const text = document.querySelector("#text");
+      // 가져온 DOM 객체에 이벤트 리스너 붙이기
+      // 1. 함수 이름을 전달해서 함수 내용을 전달
+      // 2. 인수를 가져올경우
+      // -> 익명함수 안에 넣어 함수 내용을 전달
+      text.addEventListener("click", function () {
+        changeColor("red");
+      });
+
+      // 이벤트 리스너에 들어갈 함수
+      function changeColor(color) {
+        text.style.color = color;
+      }
+
+      // 백그라운드 색을 바꾸는 함수를 작성
+      // addEventListener() 메서드를 사용
+      // text객체에 click이벤트로 추가
+      function changeBackground() {
+        // if문을 사용하여 backgroundColor가 yellow일때
+        // blue로 변경
+        if (text.style.backgroundColor == "yellow") {
+          text.style.backgroundColor = "blue";
+        } else {
+          text.style.backgroundColor = "yellow";
+        }
+      }
+      text.addEventListener("click", changeBackground);
+    </script>
+  </body>
+</html>
