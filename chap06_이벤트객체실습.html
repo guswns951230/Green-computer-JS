@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 객체 실습</title>
+  </head>
+  <body>
+    <p id="hiddenText">눌러주세요</p>
+
+    <ol>
+      <li id="first_list">
+        <input type="checkbox" name="" id="checkbox" />
+        첫 번째 리스트입니다.
+      </li>
+    </ol>
+    <script>
+      // 이벤트 실습 1
+      const hiddenText = document.querySelector("#hiddenText");
+      let flag = true;
+      function showText(e) {
+        if (flag == true) {
+          e.target.textContent = "숨겨진 단어입니다.";
+          e.target.style.fontSize = "25px";
+          e.target.style.color = "red";
+          flag = false;
+        } else {
+          e.target.textContent = "눌러주세요";
+          e.target.style.fontSize = "";
+          e.target.style.color = "";
+          flag = true;
+        }
+      }
+
+      hiddenText.addEventListener("click", showText);
+
+      // 이벤트 실습 2
+      const checkbox = document.querySelector("#checkbox");
+
+      function inputCheck(e) {
+        console.log(e.target.checked);
+        if (e.target.checked) {
+          e.target.parentNode.style.color = "lightGray";
+        } else {
+          e.target.parentNode.style.color = "black";
+        }
+      }
+
+      checkbox.addEventListener("click", inputCheck);
+    </script>
+  </body>
+</html>
